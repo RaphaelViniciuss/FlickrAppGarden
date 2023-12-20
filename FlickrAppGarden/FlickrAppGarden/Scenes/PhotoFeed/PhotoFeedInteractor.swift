@@ -21,8 +21,7 @@ final class PhotoFeedInteractor: PhotoFeedInteractorProtocol {
             let data = try await loader.loadPhoto(tags: tags)
             presenter.updateData(with: data.items ?? [])
         } catch {
-            print(error.localizedDescription)
+            presenter.updateViewError()
         }
-
     }
 }

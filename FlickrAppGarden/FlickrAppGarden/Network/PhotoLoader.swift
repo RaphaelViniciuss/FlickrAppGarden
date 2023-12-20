@@ -12,7 +12,9 @@ struct PhotoLoader {
 
     func loadPhoto(tags params: String) async throws -> Photos {
         guard let url = URL(string: baseURL+params) else { throw PhotoLoaderError.parse }
-       
+
+        print("requesting..")
+
         let (data, _) = try await session.data(from: url)
         return try JSONDecoder().decode(Photos.self, from: data)
     }

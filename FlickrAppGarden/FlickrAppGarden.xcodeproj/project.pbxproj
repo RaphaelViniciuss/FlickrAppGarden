@@ -172,9 +172,9 @@
 			isa = PBXGroup;
 			children = (
 				6826E6ED2B332BB700C793F3 /* Photo.swift */,
+				6826E70C2B336A7600C793F3 /* PhotoDetails.swift */,
 				6826E6EF2B332BC300C793F3 /* PhotoMedia.swift */,
 				6826E6EB2B332BAD00C793F3 /* Photos.swift */,
-				6826E70C2B336A7600C793F3 /* PhotoDetails.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -191,11 +191,11 @@
 		6826E6F52B332C9B00C793F3 /* PhotoFeed */ = {
 			isa = PBXGroup;
 			children = (
+				6826E6FE2B333D5500C793F3 /* PhotoFeedGridRow.swift */,
 				6826E6FA2B332CF600C793F3 /* PhotoFeedInteractor.swift */,
 				6826E6F82B332CE900C793F3 /* PhotoFeedPresenter.swift */,
 				6826E6F62B332CD300C793F3 /* PhotoFeedView.swift */,
 				6826E6FC2B332D2900C793F3 /* PhotoFeedViewState.swift */,
-				6826E6FE2B333D5500C793F3 /* PhotoFeedGridRow.swift */,
 			);
 			path = PhotoFeed;
 			sourceTree = "<group>";
@@ -203,8 +203,8 @@
 		6826E7002B334D7D00C793F3 /* PhotoDetails */ = {
 			isa = PBXGroup;
 			children = (
-				6826E7032B334DAC00C793F3 /* PhotoDetailsView.swift */,
 				6826E7122B33726800C793F3 /* PhotoDetailsParse.swift */,
+				6826E7032B334DAC00C793F3 /* PhotoDetailsView.swift */,
 			);
 			path = PhotoDetails;
 			sourceTree = "<group>";

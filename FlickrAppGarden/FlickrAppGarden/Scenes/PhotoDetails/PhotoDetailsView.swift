@@ -26,6 +26,7 @@ struct PhotoDetailsView: View {
 
             Section(header: Text("Tags")) {
                 Text(details.tags)
+                    .font(.callout)
             }
         }
         .detectOrientation($orientation)
@@ -36,6 +37,7 @@ struct PhotoDetailsView: View {
         Section(header: Text("Informations")) {
             HStack {
                 Text("Author")
+                    .font(.callout)
                 Spacer()
                 Text(details.author)
                     .foregroundStyle(.secondary)
@@ -43,6 +45,7 @@ struct PhotoDetailsView: View {
 
             HStack {
                 Text("Published")
+                    .font(.callout)
                 Spacer()
                 Text(details.published.toDate(with: .universal))
                     .foregroundStyle(.secondary)
@@ -54,6 +57,7 @@ struct PhotoDetailsView: View {
         Section(header: Text("Sizing")) {
             HStack {
                 Text("Width")
+                    .font(.callout)
                 Spacer()
                 Text(details.width)
                     .foregroundStyle(.secondary)
@@ -61,6 +65,7 @@ struct PhotoDetailsView: View {
 
             HStack {
                 Text("Height")
+                    .font(.callout)
                 Spacer()
                 Text(details.height)
                     .foregroundStyle(.secondary)

@@ -1,6 +1,7 @@
 protocol PhotoFeedPresenterProtocol {
     @MainActor func updateData(with photos: [Photo])
     @MainActor func setViewToLoading()
+    @MainActor func updateViewError()
 }
 
 final class PhotoFeedPresenter: PhotoFeedPresenterProtocol {
@@ -12,15 +13,15 @@ final class PhotoFeedPresenter: PhotoFeedPresenterProtocol {
     }
 
     func updateData(with photos: [Photo]) {
-        if photos.isEmpty {
-            viewState.state = .empty
-        }
-
         viewState.photos = photos
-        viewState.state = .loaded
+        viewState.state = photos.isEmpty ? .empty : .loaded
     }
 
     func setViewToLoading() {
         viewState.state = .loading
+    }
+
+    func updateViewError() {
+        viewState.state = .error
     }
 }
