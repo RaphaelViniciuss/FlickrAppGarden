@@ -6,7 +6,7 @@ struct PhotoFeedView: View {
     let interactor: PhotoFeedInteractorProtocol
 
     var body: some View {
-        ZStack {
+        NavigationView {
             switch viewState.state {
             case .loading:
                 ProgressView("Loading...")
@@ -27,11 +27,17 @@ struct PhotoFeedView: View {
         ScrollView {
             LazyVGrid(columns: [.init(.adaptive(minimum: 100, maximum: .infinity), spacing: 3)], spacing: 3) {
                 ForEach(0..<viewState.photos.count, id: \.self) { value in
-                    PhotoFeedGridRow(imageURL: viewState.photos[value].media.imageURL ?? "")
+                    NavigationLink(destination: PhotoDetailsView(details: retrievePhotoDetails(viewState.photos[value]))) {
+                        PhotoFeedGridRow(imageURL: viewState.photos[value].media.imageURL ?? "")
+                    }
                 }
             }
         }
         .padding()
+    }
+
+    private func retrievePhotoDetails(_ photo: Photo) -> PhotoDetails {
+        PhotoDetailsParse().modelToDetails(from: photo)
     }
 }
 

@@ -11,4 +11,3 @@ final class PhotoFeedViewState: ObservableObject {
     @Published var state: PhotoFeedState = .empty
     @Published var photos: [Photo] = []
 }
-
