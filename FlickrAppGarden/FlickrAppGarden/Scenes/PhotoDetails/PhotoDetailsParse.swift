@@ -39,3 +39,4 @@ struct PhotoDetailsParse {
         return String(author[firstIndex..<lastIndex])
     }
 }
+

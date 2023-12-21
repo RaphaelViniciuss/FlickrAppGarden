@@ -29,16 +29,16 @@ struct PhotoFeedView: View {
             }
         }
         .task {
-            //await interactor.fetchData(with: "apple")
+            await interactor.fetchData(with: "apple")
         }
     }
 
     var contentView: some View {
         ScrollView(.vertical) {
             LazyVGrid(columns: [.init(.adaptive(minimum: 100, maximum: .infinity), spacing: 3)], spacing: 3) {
-                ForEach(0..<viewState.photos.count, id: \.self) { value in
-                    NavigationLink(destination: PhotoDetailsView(details: retrievePhotoDetails(viewState.photos[value]))) {
-                        PhotoFeedGridRow(imageURL: viewState.photos[value].media.imageURL ?? "")
+                ForEach(viewState.photos, id: \.self) { value in
+                    NavigationLink(destination: PhotoDetailsView(details: retrievePhotoDetails(value))) {
+                        PhotoFeedGridRow(imageURL: value.media.imageURL ?? "")
                     }
                 }
             }

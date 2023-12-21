@@ -1,4 +1,4 @@
-struct PhotoMedia: Codable {
+struct PhotoMedia: Codable, Hashable {
     let imageURL: String?
 
     enum CodingKeys: String, CodingKey {

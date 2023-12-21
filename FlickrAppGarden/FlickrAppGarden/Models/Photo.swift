@@ -1,4 +1,4 @@
-struct Photo: Codable {
+struct Photo: Codable, Hashable {
     let title: String
     let link: String
     let media: PhotoMedia
