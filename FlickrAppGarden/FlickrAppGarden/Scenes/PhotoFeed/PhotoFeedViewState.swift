@@ -8,7 +8,7 @@ enum PhotoFeedState {
 }
 
 final class PhotoFeedViewState: ObservableObject {
-    @Published var state: PhotoFeedState = .loading
+    @Published var state: PhotoFeedState = .empty
     @Published var photos: [Photo] = []
     @Published var searchValue = ""
 }

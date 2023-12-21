@@ -5,22 +5,24 @@ protocol PhotoFeedInteractorProtocol {
 }
 
 final class PhotoFeedInteractor: PhotoFeedInteractorProtocol {
-    
-    private let loader: PhotoLoader
+
+    private let repository: PhotoFeedRepositoryProtocol
     private let presenter: PhotoFeedPresenterProtocol
 
-    init(loader: PhotoLoader, presenter: PhotoFeedPresenterProtocol) {
-        self.loader = loader
+    init(repository: PhotoFeedRepositoryProtocol, presenter: PhotoFeedPresenterProtocol) {
+        self.repository = repository
         self.presenter = presenter
     }
 
     func fetchData(with tags: String) async {
         presenter.setViewToLoading()
 
-        do {
-            let data = try await loader.loadPhoto(tags: tags)
+        let result = await repository.fetchPhotoFeed(tags: tags)
+
+        switch result {
+        case .success(let data):
             presenter.updateData(with: data.items ?? [])
-        } catch {
+        case .failure(_):
             presenter.updateViewError()
         }
     }

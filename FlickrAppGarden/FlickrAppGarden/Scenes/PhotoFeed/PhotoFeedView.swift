@@ -75,7 +75,9 @@ struct PhotoFeedView: View {
 #Preview {
     let viewState = PhotoFeedViewState()
     let presenter = PhotoFeedPresenter(viewState: viewState)
-    let interactor = PhotoFeedInteractor(loader: .init(), presenter: presenter)
+    let network = NetworkService()
+    let repository = PhotoFeedRepository(service: network)
+    let interactor = PhotoFeedInteractor(repository: repository, presenter: presenter)
 
     return PhotoFeedView(viewState: viewState, interactor: interactor)
 }
