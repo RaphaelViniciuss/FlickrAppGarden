@@ -12,8 +12,10 @@ struct PhotoDetailsView: View {
             Section() {
                 AnimatedImage(url: URL(string: details.imageUrl ?? ""))
                     .resizable()
-                    .frame(height: orientation.isPortrait ? 200 : 300)
+                    .frame(height: orientation.isPortrait ? Metrics.imagePortraitHeight : Metrics.imageLandscapeHeight)
                     .listRowInsets(EdgeInsets())
+                    .accessibilityElement()
+                    .accessibilityLabel(Text(details.alt ?? ""))
             }
 
             Section {
@@ -74,6 +76,13 @@ struct PhotoDetailsView: View {
     }
 }
 
+extension PhotoDetailsView {
+    private struct Metrics {
+        static let imagePortraitHeight: CGFloat = 200
+        static let imageLandscapeHeight: CGFloat = 300
+    }
+}
+
 #Preview {
     PhotoDetailsView(
         details: .init(
@@ -81,9 +90,11 @@ struct PhotoDetailsView: View {
             author: "Laura Macky",
             published: "2023-12-20T16:34:22Z",
             imageUrl: "https://live.staticflickr.com/65535/53409342642_84bdb6efcc_m.jpg",
+            alt: "A little brown bird",
             width: "240",
             height: "160",
             tags: "birds wildlife cedarwaxwing lauramacky"
         )
     )
 }
+

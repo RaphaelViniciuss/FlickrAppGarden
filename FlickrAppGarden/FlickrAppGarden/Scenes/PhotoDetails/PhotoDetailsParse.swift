@@ -2,20 +2,21 @@ typealias PhotoDetailsSizing = (width: String, height: String)
 
 struct PhotoDetailsParse {
     func modelToDetails(from photo: Photo) -> PhotoDetails {
-        let sizing = retrieveSizing(from: photo.description)
+        let sizing = retrieveSizing(photo.description)
 
         return .init(
             title: photo.title,
-            author: retrieveAuthor(from: photo.author),
+            author: retrieveAuthor(photo.author),
             published: photo.published,
             imageUrl: photo.media.imageURL,
+            alt: retrieveAlt(photo.description),
             width: sizing.width,
             height: sizing.height,
             tags: photo.tags
         )
     }
 
-    private func retrieveSizing(from description: String?) -> PhotoDetailsSizing {
+    private func retrieveSizing(_ description: String?) -> PhotoDetailsSizing {
         guard let description,
               let firstIndexWidth = description.firstRange(of: "width=\"")?.upperBound,
               let lastIndexWidth = description.firstRange(of: "\" height")?.lowerBound,
@@ -30,13 +31,23 @@ struct PhotoDetailsParse {
         return(width, height)
     }
 
-    private func retrieveAuthor(from author: String) -> String {
+    private func retrieveAuthor(_ author: String) -> String {
         guard let firstIndex = author.firstRange(of: "(\"")?.upperBound,
               let lastIndex = author.firstRange(of: "\")")?.lowerBound else {
             return ""
         }
 
         return String(author[firstIndex..<lastIndex])
+    }
+
+    private func retrieveAlt(_ description: String?) -> String? {
+        guard let description,
+              let firstIndex = description.firstRange(of: "alt=\"")?.upperBound,
+              let lastIndex = description.firstRange(of: "\" /></a>")?.lowerBound else {
+            return nil
+        }
+
+        return String(description[firstIndex..<lastIndex])
     }
 }
 

@@ -120,6 +120,23 @@
         }
       }
     },
+    "photo.feed.accessibility.photo %lld %lld %@" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Image %lld of %lld. Title: %@"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Imagem %lld de %lld. Título: %@"
+          }
+        }
+      }
+    },
     "photo.feed.content.title" : {
       "extractionState" : "manual",
       "localizations" : {
