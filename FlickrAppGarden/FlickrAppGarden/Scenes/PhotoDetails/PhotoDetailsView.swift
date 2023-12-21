@@ -24,7 +24,7 @@ struct PhotoDetailsView: View {
 
             sizingSection
 
-            Section(header: Text("Tags")) {
+            Section(header: Text("photo.details.section.tags")) {
                 Text(details.tags)
                     .font(.callout)
             }
@@ -34,9 +34,9 @@ struct PhotoDetailsView: View {
     }
 
     var informationsSection: some View {
-        Section(header: Text("Informations")) {
+        Section(header: Text("photo.details.section.informations")) {
             HStack {
-                Text("Author")
+                Text("photo.details.row.author")
                     .font(.callout)
                 Spacer()
                 Text(details.author)
@@ -44,7 +44,7 @@ struct PhotoDetailsView: View {
             }
 
             HStack {
-                Text("Published")
+                Text("photo.details.row.published")
                     .font(.callout)
                 Spacer()
                 Text(details.published.toDate(with: .universal))
@@ -54,9 +54,9 @@ struct PhotoDetailsView: View {
     }
 
     var sizingSection: some View {
-        Section(header: Text("Sizing")) {
+        Section(header: Text("photo.details.section.sizing")) {
             HStack {
-                Text("Width")
+                Text("photo.details.row.width")
                     .font(.callout)
                 Spacer()
                 Text(details.width)
@@ -64,7 +64,7 @@ struct PhotoDetailsView: View {
             }
 
             HStack {
-                Text("Height")
+                Text("photo.details.row.height")
                     .font(.callout)
                 Spacer()
                 Text(details.height)

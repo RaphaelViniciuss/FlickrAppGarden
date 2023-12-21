@@ -28,6 +28,7 @@
 		6826E70D2B336A7600C793F3 /* PhotoDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6826E70C2B336A7600C793F3 /* PhotoDetails.swift */; };
 		6826E7112B336BAE00C793F3 /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6826E7102B336BAE00C793F3 /* String+Extension.swift */; };
 		6826E7132B33726800C793F3 /* PhotoDetailsParse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6826E7122B33726800C793F3 /* PhotoDetailsParse.swift */; };
+		684F64832B3459F30035529B /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 684F64822B3459F30035529B /* Localizable.xcstrings */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -72,6 +73,7 @@
 		6826E70C2B336A7600C793F3 /* PhotoDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoDetails.swift; sourceTree = "<group>"; };
 		6826E7102B336BAE00C793F3 /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
 		6826E7122B33726800C793F3 /* PhotoDetailsParse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoDetailsParse.swift; sourceTree = "<group>"; };
+		684F64822B3459F30035529B /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -123,14 +125,14 @@
 		6826E6B92B3328B200C793F3 /* FlickrAppGarden */ = {
 			isa = PBXGroup;
 			children = (
+				6826E6BA2B3328B200C793F3 /* FlickrAppGardenApp.swift */,
+				6826E6E62B33293800C793F3 /* Info.plist */,
 				6826E70E2B336AC000C793F3 /* Commons */,
-				6826E6F42B332C9700C793F3 /* Scenes */,
 				6826E6EA2B332B9D00C793F3 /* Models */,
 				6826E6E92B332ADB00C793F3 /* Network */,
-				6826E6E62B33293800C793F3 /* Info.plist */,
-				6826E6BA2B3328B200C793F3 /* FlickrAppGardenApp.swift */,
-				6826E6BE2B3328B300C793F3 /* Assets.xcassets */,
 				6826E6C02B3328B300C793F3 /* Preview Content */,
+				684F64812B3459B30035529B /* Resources */,
+				6826E6F42B332C9700C793F3 /* Scenes */,
 			);
 			path = FlickrAppGarden;
 			sourceTree = "<group>";
@@ -234,6 +236,23 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
+		684F64812B3459B30035529B /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				6826E6BE2B3328B300C793F3 /* Assets.xcassets */,
+				684F64842B3464180035529B /* Strings */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		684F64842B3464180035529B /* Strings */ = {
+			isa = PBXGroup;
+			children = (
+				684F64822B3459F30035529B /* Localizable.xcstrings */,
+			);
+			path = Strings;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -323,6 +342,7 @@
 			knownRegions = (
 				en,
 				Base,
+				"pt-BR",
 			);
 			mainGroup = 6826E6AE2B3328B200C793F3;
 			packageReferences = (
@@ -346,6 +366,7 @@
 			files = (
 				6826E6C22B3328B300C793F3 /* Preview Assets.xcassets in Resources */,
 				6826E6BF2B3328B300C793F3 /* Assets.xcassets in Resources */,
+				684F64832B3459F30035529B /* Localizable.xcstrings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

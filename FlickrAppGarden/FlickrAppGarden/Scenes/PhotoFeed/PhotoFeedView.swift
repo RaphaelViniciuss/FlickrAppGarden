@@ -11,7 +11,7 @@ struct PhotoFeedView: View {
             Group {
                 switch viewState.state {
                 case .loading:
-                    ProgressView("Loading..")
+                    ProgressView("photo.feed.loading.body")
                 case .loaded:
                     contentView
                 case .error:
@@ -20,7 +20,7 @@ struct PhotoFeedView: View {
                     emptyContentView
                 }
             }
-            .navigationTitle("Gallery 🏷️")
+            .navigationTitle("photo.feed.content.title")
         }
         .searchable(text: $viewState.searchValue)
         .onReceive(viewState.$searchValue.debounce(for: 0.8, scheduler: RunLoop.main)) { searchTerm in
@@ -49,9 +49,9 @@ struct PhotoFeedView: View {
 
     var emptyContentView: some View {
         VStack {
-            Text("Sorry, there are no results.")
+            Text("photo.feed.empty.title")
                 .font(.title2)
-            Text("Try doing a new search with other keywords.")
+            Text("photo.feed.empty.body")
                 .font(.body)
                 .foregroundStyle(.secondary)
         }
@@ -59,9 +59,9 @@ struct PhotoFeedView: View {
 
     var errorContentView: some View {
         VStack {
-            Text("There's something wrong.")
+            Text("photo.feed.error.title")
                 .font(.title2)
-            Text("Try again soon")
+            Text("photo.feed.error.body")
                 .font(.body)
                 .foregroundStyle(.secondary)
         }
